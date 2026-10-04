@@ -275,7 +275,7 @@ cite {
 
 .social-links svg { width: 1em; height: 1em; fill: currentColor; }
 
-.social-links .twitter   { background: #1da1f2; color: #fff; }
+.social-links .x         { background: #000;    color: #fff; }
 .social-links .mastodon  { background: #3288d4; color: #fff; }
 .social-links .linkedin  { background: #0d66c2; color: #fff; }
 .social-links .github    { background: #24292d; color: #fff; }
