@@ -1,0 +1,371 @@
+/* gfsolone.com — ricostruzione statica del tema Björk (Anders Norén) */
+
+@font-face {
+	font-family: "Albert Sans";
+	font-style: normal;
+	font-weight: 100 900;
+	font-display: fallback;
+	src: url("fonts/AlbertSans-VariableFont_wght.woff2") format("woff2");
+}
+
+@font-face {
+	font-family: "Albert Sans";
+	font-style: italic;
+	font-weight: 100 900;
+	font-display: fallback;
+	src: url("fonts/AlbertSans-Italic-VariableFont_wght.woff2") format("woff2");
+}
+
+:root {
+	--foreground: #111111;
+	--background: #ffffff;
+	--tertiary: #e2e2e2;
+	--quaternary: #f3f2f2;
+
+	--font-default: "Albert Sans", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+	--font-mono: ui-monospace, Menlo, Consolas, Monaco, "Liberation Mono", "Lucida Console", monospace;
+
+	--fs-tiny: clamp(14px, 0.875rem + ((1vw - 3.2px) * 0.147), 16px);
+	--fs-small: clamp(16px, 1rem + ((1vw - 3.2px) * 0.147), 18px);
+	--fs-medium: clamp(17px, 1.063rem + ((1vw - 3.2px) * 0.294), 21px);
+	--fs-large: clamp(21px, 1.313rem + ((1vw - 3.2px) * 0.221), 24px);
+	--fs-h1: clamp(36px, 2.25rem + ((1vw - 3.2px) * 2.059), 64px);
+	--fs-h2: clamp(33px, 2.063rem + ((1vw - 3.2px) * 1.691), 56px);
+	--fs-h5: clamp(24px, 1.5rem + ((1vw - 3.2px) * 0.588), 32px);
+	--fs-h6: clamp(21px, 1.313rem + ((1vw - 3.2px) * 0.441), 27px);
+
+	--gap: min(32px, 6.4vw);
+	--gutter: clamp(32px, 5vw, 64px);
+	--outer: clamp(32px, 6.666vw, 64px);
+	--wide: 1680px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+	margin: 0;
+	padding: var(--gutter);
+	background: var(--background);
+	color: var(--foreground);
+	font-family: var(--font-default);
+	font-size: var(--fs-medium);
+	font-weight: 500;
+	letter-spacing: -0.01em;
+	line-height: 1.5em;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: underline; text-underline-offset: 0.2em; }
+a:hover { text-decoration: none; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+p, h1, h2, h6, blockquote, figure, ul, hr { margin: 0; }
+
+p { line-height: 1.5em; }
+
+h1, h2, h6 { font-weight: 600; letter-spacing: -0.03em; }
+h1 { font-size: var(--fs-h1); line-height: 1.15; }
+h2 { font-size: var(--fs-h2); line-height: 1.15; }
+h6 { font-size: var(--fs-h6); line-height: 1; }
+
+.small { font-size: var(--fs-small); }
+.credit { font-size: 10px; text-align: right; }
+
+.skip-link {
+	position: absolute;
+	left: -9999px;
+}
+.skip-link:focus {
+	left: 8px;
+	top: 8px;
+	z-index: 1000;
+	padding: 8px 16px;
+	background: var(--background);
+}
+
+/* Spaziatura verticale tra blocchi (equivalente al "block gap" di WordPress) */
+.stack > * + * { margin-top: var(--gap); }
+
+/* ------------------------------------------- */
+/* Layout: sidebar + contenuto
+/* ------------------------------------------- */
+
+.layout {
+	display: flex;
+	gap: var(--gap);
+	max-width: var(--wide);
+	margin: 0 auto;
+}
+
+.sidebar-col { flex: 0 1 23%; min-width: 0; }
+.content-col { flex: 0 1 77%; min-width: 0; }
+
+.sidebar {
+	position: sticky;
+	top: var(--outer);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2em;
+	min-height: calc(100vh - (var(--outer) * 2));
+}
+
+.sidebar-logo img {
+	width: 150px;
+	border-radius: 8px;
+	filter: grayscale(1);
+}
+
+.sidebar-nav ul {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.25em;
+	font-size: var(--fs-large);
+}
+
+.sidebar-nav a,
+.menu a { text-decoration: none; }
+.sidebar-nav a:hover,
+.menu a:hover { text-decoration: underline; }
+
+.sidebar-footer { text-align: center; }
+
+.sidebar-footer .site-title {
+	font-family: var(--font-mono);
+	font-size: var(--fs-large);
+	font-weight: 600;
+	line-height: 1;
+}
+
+.site-title a { text-decoration: none; }
+.site-title a:hover { text-decoration: underline; }
+
+.sidebar-footer img { width: 189px; margin: 0 auto; }
+
+.sidebar-footer p:not(.site-title) {
+	font-size: var(--fs-tiny);
+	font-style: italic;
+}
+
+/* ------------------------------------------- */
+/* Intro
+/* ------------------------------------------- */
+
+.intro {
+	display: flex;
+	align-items: center;
+	min-height: 580px;
+}
+
+.intro-text > * + * { margin-top: 2rem; }
+.intro-text > .tight { margin-top: 12px; }
+
+/* ------------------------------------------- */
+/* Separatore "angled" di Björk
+/* ------------------------------------------- */
+
+.separator {
+	border: none;
+	height: 10px;
+	width: 100%;
+	color: #808080;
+	background-image: linear-gradient(-45deg, currentColor 25%, transparent 25%, transparent 50%, currentColor 50%, currentColor 75%, transparent 75%, transparent);
+	background-size: 5px 5px;
+}
+.separator.is-light { color: var(--tertiary); }
+
+/* ------------------------------------------- */
+/* Progetti
+/* ------------------------------------------- */
+
+.cards {
+	display: flex;
+	gap: var(--gap);
+}
+
+.card {
+	flex: 1 1 0;
+	min-width: 0;
+	background: var(--quaternary);
+	overflow-wrap: break-word;
+}
+
+.card img {
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+}
+
+.card-body {
+	padding: min(2em, 32px, 6.4vw);
+}
+
+.card-body > * + * { margin-top: 1.5rem; }
+.card-body > .tight { margin-top: 12px; }
+
+/* ------------------------------------------- */
+/* Solone(.it)
+/* ------------------------------------------- */
+
+.solone-body {
+	padding: 5vh 0;
+}
+
+.solone-body > * + * { margin-top: 1em; }
+
+blockquote {
+	margin: 0 40px;
+	padding-left: 1.5em;
+	border-left: 1px solid var(--tertiary);
+}
+
+blockquote > * + * { margin-top: var(--gap); }
+
+cite {
+	display: block;
+	font-style: normal;
+	font-size: var(--fs-medium);
+}
+
+/* ------------------------------------------- */
+/* Contatti
+/* ------------------------------------------- */
+
+.contact .tight { margin-top: 8px; }
+
+.social-links {
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.66em;
+	font-size: 24px;
+}
+
+.social-links li {
+	border-radius: 9999px;
+	background: #f0f0f0;
+	color: #444;
+	transition: transform 0.1s ease;
+}
+
+.social-links li:hover { transform: scale(1.1); }
+
+@media (prefers-reduced-motion: reduce) {
+	.social-links li { transition: none; }
+}
+
+.social-links a {
+	display: flex;
+	align-items: center;
+	padding: 0.25em;
+	line-height: 0;
+	color: inherit;
+	text-decoration: none;
+}
+
+.social-links svg { width: 1em; height: 1em; fill: currentColor; }
+
+.social-links .twitter   { background: #1da1f2; color: #fff; }
+.social-links .mastodon  { background: #3288d4; color: #fff; }
+.social-links .linkedin  { background: #0d66c2; color: #fff; }
+.social-links .github    { background: #24292d; color: #fff; }
+.social-links .reddit    { background: #ff4500; color: #fff; }
+.social-links .instagram { background: #f00075; color: #fff; }
+.social-links .spotify   { background: #1bd760; color: #fff; }
+.social-links .telegram  { background: #2aabee; color: #fff; }
+.social-links .patreon   { background: #000;    color: #fff; }
+.social-links .amazon    { background: #f90;    color: #fff; }
+.social-links .twitch    { background: #6440a4; color: #fff; }
+.social-links .youtube   { background: red;     color: #fff; }
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
+
+/* ------------------------------------------- */
+/* Header mobile + menu
+/* ------------------------------------------- */
+
+.site-header {
+	display: none;
+	justify-content: space-between;
+	align-items: center;
+	gap: 2em;
+	max-width: var(--wide);
+	margin: var(--gap) auto 0;
+	padding-bottom: clamp(48px, 9vw, 64px);
+}
+
+.site-header .site-title {
+	margin: 0;
+	font-size: var(--fs-h5);
+	font-weight: 600;
+	line-height: 1.25;
+	letter-spacing: -0.03em;
+}
+
+.menu-toggle,
+.menu-close {
+	background: transparent;
+	border: none;
+	color: currentColor;
+	cursor: pointer;
+	padding: 0;
+}
+
+.menu-toggle svg,
+.menu-close svg { display: block; width: 24px; height: 24px; fill: currentColor; }
+.menu-toggle svg { transform: scale(1.5, 1.25); }
+.menu-close svg { transform: scale(1.25); }
+
+.menu {
+	position: fixed;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	max-width: none;
+	max-height: none;
+	margin: 0;
+	border: none;
+	padding: clamp(1rem, var(--gutter), 20rem);
+	background: var(--background);
+	color: var(--foreground);
+	overflow: auto;
+}
+
+.menu-close {
+	position: absolute;
+	top: clamp(1rem, var(--gutter), 20rem);
+	right: clamp(1rem, var(--gutter), 20rem);
+}
+
+.menu ul {
+	list-style: none;
+	padding: calc(2rem + 24px) 0 0;
+	display: flex;
+	flex-direction: column;
+	gap: 0.25em;
+	font-size: var(--fs-large);
+}
+
+@media (max-width: 781px) {
+	.sidebar-col { display: none; }
+	.content-col { flex-basis: 100%; }
+	.site-header { display: flex; }
+	.cards { flex-direction: column; }
+}
