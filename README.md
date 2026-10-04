@@ -12,7 +12,6 @@ assets/style.css    stili
 assets/fonts/       Albert Sans (variable font, SIL Open Font License)
 assets/img/         immagini
 favicon.ico
-CNAME               dominio personalizzato per GitHub Pages
 ```
 
 ## Anteprima locale
