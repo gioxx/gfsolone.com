@@ -251,14 +251,20 @@ cite {
 	font-size: 24px;
 }
 
+/* Icone monocromatiche; al passaggio del mouse prendono il colore del marchio */
 .social-links li {
+	--brand: var(--foreground);
 	border-radius: 9999px;
-	background: #f0f0f0;
-	color: #444;
-	transition: transform 0.1s ease;
+	background: var(--foreground);
+	color: #fff;
+	transition: transform 0.1s ease, background-color 0.15s ease;
 }
 
-.social-links li:hover { transform: scale(1.1); }
+.social-links li:hover,
+.social-links li:focus-within {
+	background: var(--brand);
+	transform: scale(1.1);
+}
 
 @media (prefers-reduced-motion: reduce) {
 	.social-links li { transition: none; }
@@ -275,18 +281,19 @@ cite {
 
 .social-links svg { width: 1em; height: 1em; fill: currentColor; }
 
-.social-links .x         { background: #000;    color: #fff; }
-.social-links .mastodon  { background: #3288d4; color: #fff; }
-.social-links .linkedin  { background: #0d66c2; color: #fff; }
-.social-links .github    { background: #24292d; color: #fff; }
-.social-links .reddit    { background: #ff4500; color: #fff; }
-.social-links .instagram { background: #f00075; color: #fff; }
-.social-links .spotify   { background: #1bd760; color: #fff; }
-.social-links .telegram  { background: #2aabee; color: #fff; }
-.social-links .patreon   { background: #000;    color: #fff; }
-.social-links .amazon    { background: #f90;    color: #fff; }
-.social-links .twitch    { background: #6440a4; color: #fff; }
-.social-links .youtube   { background: red;     color: #fff; }
+.social-links .feed      { --brand: #f26522; }
+.social-links .x         { --brand: #000; }
+.social-links .mastodon  { --brand: #3288d4; }
+.social-links .linkedin  { --brand: #0d66c2; }
+.social-links .github    { --brand: #24292d; }
+.social-links .reddit    { --brand: #ff4500; }
+.social-links .instagram { --brand: #f00075; }
+.social-links .spotify   { --brand: #1bd760; }
+.social-links .telegram  { --brand: #2aabee; }
+.social-links .patreon   { --brand: #000; }
+.social-links .amazon    { --brand: #f90; }
+.social-links .twitch    { --brand: #6440a4; }
+.social-links .youtube   { --brand: red; }
 
 .sr-only {
 	position: absolute;
