@@ -2,7 +2,7 @@
 
 Il mio biglietto da visita sul web: una pagina sola, HTML e CSS statici, nessun build step, nessun tracciamento.
 
-Il design riprende il tema [Björk](https://andersnoren.se/themes/bjork/) di Anders Norén, usato in passato quando il sito girava su WordPress.
+Il design riprende il tema [Björk](https://andersnoren.se/themes/bjork/) di Anders Norén.
 
 ## Struttura
 

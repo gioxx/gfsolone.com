@@ -88,7 +88,7 @@ h6 { font-size: var(--fs-h6); line-height: 1; }
 	background: var(--background);
 }
 
-/* Spaziatura verticale tra blocchi (equivalente al "block gap" di WordPress) */
+/* Spaziatura verticale tra blocchi */
 .stack > * + * { margin-top: var(--gap); }
 
 /* ------------------------------------------- */
