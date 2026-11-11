@@ -1,0 +1,95 @@
+<!doctype html>
+<!--
+	gfsolone.com / 404
+
+	Codice (markup HTML e CSS): GNU General Public License v2.0 o successiva.
+	SPDX-License-Identifier: GPL-2.0-or-later
+	Contenuti: © Giovanni Solone, tutti i diritti riservati. Non coperti dalla GPL.
+	Dettagli: https://github.com/gioxx/gfsolone.com#licenza
+
+	Pagina 404 di GitHub Pages: copre i vecchi path di WordPress e rimanda alla home.
+-->
+<html lang="it">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Pagina non trovata - gfsolone.Com</title>
+	<meta name="description" content="Pagina non più disponibile.">
+	<meta http-equiv="refresh" content="5;url=/">
+	<meta name="robots" content="noindex">
+	<link rel="icon" href="/favicon.ico" sizes="any">
+	<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+	<link rel="preload" href="/assets/fonts/AlbertSans-VariableFont_wght.woff2" as="font" type="font/woff2" crossorigin>
+	<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+	<a class="skip-link" href="#main">Vai al contenuto</a>
+
+	<div class="layout">
+		<div class="sidebar-col">
+			<aside class="sidebar">
+				<figure class="sidebar-logo">
+					<a href="/"><img src="/assets/img/logo.png" alt="gfsolone.Com, torna alla home" width="150" height="150"></a>
+				</figure>
+
+				<nav class="sidebar-nav" aria-label="Navigazione">
+					<ul>
+						<li><a href="/">home</a></li>
+						<li><a href="/sunset/">vecchi servizi</a></li>
+						<li><a href="https://gioxx.org">blog</a></li>
+						<li><a href="/#seguimi">contatti</a></li>
+					</ul>
+				</nav>
+
+				<div class="sidebar-footer">
+					<p class="site-title"><a href="/" rel="home">gfsolone.Com</a></p>
+					<img src="/assets/img/milan-skyline.png" alt="" width="189" height="61">
+					<p>Made with ♡ in Italy (<a href="https://it.wikipedia.org/wiki/Milano">Milan</a>)</p>
+					<p><a href="https://andersnoren.se/">Björk theme</a></p>
+					<p>and a lot of patience.</p>
+				</div>
+			</aside>
+		</div>
+
+		<div class="content-col">
+			<main id="main" class="stack">
+				<section class="intro" id="intro">
+					<div class="intro-text">
+						<h1>Pagina non più disponibile</h1>
+						<p><strong>Quello che cercavi qui non esiste più.</strong></p>
+						<p class="tight">gfsolone.com oggi è solo un biglietto da visita virtuale: tra qualche secondo ti riporto alla <a href="/">home</a>. Se cercavi uno dei vecchi tools, sono su <a href="https://tools.buildbandits.com/">tools.buildbandits.com</a>; per tutto il resto c'è il <a href="https://gioxx.org">blog</a>.</p>
+					</div>
+				</section>
+			</main>
+		</div>
+	</div>
+
+	<header class="site-header">
+		<p class="site-title"><a href="/" rel="home">gfsolone.Com</a></p>
+		<button class="menu-toggle" popovertarget="menu" aria-label="Apri menu">
+			<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5h16v1.5H4z"/><path d="M4 15h16v1.5H4z"/></svg>
+		</button>
+		<nav id="menu" class="menu" popover aria-label="Menu">
+			<button class="menu-close" popovertarget="menu" popovertargetaction="hide" aria-label="Chiudi menu">
+				<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m13.06 12 6.47-6.47-1.06-1.06L12 10.94 5.53 4.47 4.47 5.53 10.94 12l-6.47 6.47 1.06 1.06L12 13.06l6.47 6.47 1.06-1.06L13.06 12Z"/></svg>
+			</button>
+			<ul>
+				<li><a href="/">home</a></li>
+				<li><a href="/sunset/">vecchi servizi</a></li>
+				<li><a href="https://gioxx.org">blog</a></li>
+				<li><a href="/#seguimi">contatti</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<script>
+		// Chiude il menu mobile quando si sceglie una voce interna alla pagina
+		document.querySelectorAll('#menu a[href^="#"]').forEach(function (link) {
+			link.addEventListener('click', function () {
+				document.getElementById('menu').hidePopover();
+			});
+		});
+	</script>
+</body>
+</html>

@@ -8,6 +8,8 @@ Il design riprende il tema [Björk](https://andersnoren.se/themes/bjork/) di And
 
 ```
 index.html          la pagina
+404.html            pagina non trovata (vecchi path WordPress), rimanda alla home dopo 5 s
+CNAME               dominio personalizzato di GitHub Pages
 sunset/index.html   atterraggio dei vecchi sottodomini (servizi spenti, rimandi ai tools)
 assets/style.css    stili
 assets/fonts/       Albert Sans (variable font, SIL Open Font License)
