@@ -152,7 +152,8 @@ h6 { font-size: var(--fs-h6); line-height: 1; }
 .sidebar-footer img { width: 189px; margin: 0 auto; }
 
 .sidebar-footer p:not(.site-title) {
-	font-size: var(--fs-tiny);
+	font-size: 11px;
+	line-height: 1.4;
 	font-style: italic;
 }
 
