@@ -1,6 +1,6 @@
 # gfsolone.com
 
-Il mio biglietto da visita sul web: una pagina sola, HTML e CSS statici, nessun build step, nessun tracciamento.
+Il mio biglietto da visita sul web: una pagina (più `/sunset/` per i vecchi link), HTML e CSS statici, nessun build step, nessun tracciamento.
 
 Il design riprende il tema [Björk](https://andersnoren.se/themes/bjork/) di Anders Norén.
 
@@ -8,6 +8,7 @@ Il design riprende il tema [Björk](https://andersnoren.se/themes/bjork/) di And
 
 ```
 index.html          la pagina
+sunset/index.html   atterraggio dei vecchi sottodomini (servizi spenti, rimandi ai tools)
 assets/style.css    stili
 assets/fonts/       Albert Sans (variable font, SIL Open Font License)
 assets/img/         immagini
