@@ -167,6 +167,9 @@ h6 { font-size: var(--fs-h6); line-height: 1; }
 	min-height: 580px;
 }
 
+/* Intro con poco testo seguita da altre sezioni: niente altezza minima */
+.intro.is-compact { min-height: 0; }
+
 .intro-text > * + * { margin-top: 2rem; }
 .intro-text > .tight { margin-top: 12px; }
 
@@ -218,7 +221,7 @@ h6 { font-size: var(--fs-h6); line-height: 1; }
 /* ------------------------------------------- */
 
 .solone-body {
-	padding: 5vh 0;
+	padding-bottom: 5vh;
 }
 
 .solone-body > * + * { margin-top: 1em; }
@@ -245,11 +248,11 @@ cite {
 
 /* Pagina /sunset/: lista dei tools traslocati */
 .tool-links {
-	list-style: none;
-	padding: 0;
+	padding-left: 1.25em;
 	font-size: var(--fs-medium);
 }
-.tool-links li + li { margin-top: 0.75em; }
+.tool-links a { text-decoration: none; }
+.tool-links a:hover { text-decoration: underline; }
 code { font-family: var(--font-mono); font-size: 0.9em; }
 
 .social-links {
